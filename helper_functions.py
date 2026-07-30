@@ -90,22 +90,34 @@ def account_login():
 
     print("Successfully logged in to your account!")
 
-        # while(user_menu_option != 4):
-        #     print("Please choose from the following menu:")
-        #     print("1. Make a deposit to your account")
-        #     print("2. Make a withdrawal from your account")
-        #     print("3. Get account details")
-        #     print("4. Log out")
+    user_menu_option = 0
 
-        #     while(True):
-        #         str_option = input("Please type your selection: ")
-        #         user_menu_option = get_valid_menu_option(str_option, 1, 4)
-        #         if(user_menu_option > 0):
-        #             break
-        #     match (user_menu_option):
-        #         case 1:
+    while(user_menu_option != 4):
+        print("Please choose from the following menu:")
+        print("1. Make a deposit to your account")
+        print("2. Make a withdrawal from your account")
+        print("3. Get account details")
+        print("4. Log out")
 
-    print()
+        while(True):
+            str_option = input("Please type your selection: ")
+            user_menu_option = get_valid_menu_option(str_option, 1, 4)
+            if(user_menu_option > 0):
+                break
+
+
+        match (user_menu_option):
+                case 1:
+                    account.logged_account.make_deposit()
+                case 2:
+                    account.logged_account.make_withdrawal()
+                case 3:
+                    account.logged_account.get_account_details()
+                case 4:
+                    account.logged_account.logout()
+                
+
+    print("Going back to main menu...")
 
 def exit_program():
     print("\n")
