@@ -5,19 +5,22 @@ import helper_functions
 #variables
 main_menu_option = -1
 
+
 print("Welcome to the Python Bank Program!")
-print("\n")
+print()
 
 while(main_menu_option != 3):
     print("Please select an option from the following list: ")
     print("1. Create a new account")
     print("2. Log in to your account")
     print("3. Exit the program")
-
     
-    while (main_menu_option < 0):
+    while (True):
         option_input = input("Type your selection here: ")
         main_menu_option = helper_functions.get_valid_menu_option(option_input, 1, 3)
+        if(main_menu_option > 0):
+            break
+        
 
     match main_menu_option:
         case 1:
