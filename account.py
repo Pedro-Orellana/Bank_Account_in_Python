@@ -1,5 +1,6 @@
 #variables
 registered_accounts = []
+logged_account = None
 account_number = 5000
 
 

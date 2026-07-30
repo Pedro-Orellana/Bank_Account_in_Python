@@ -1,4 +1,4 @@
-import account
+
 import helper_functions
 
 
@@ -34,7 +34,6 @@ while(main_menu_option != 3):
         case 4:
             helper_functions.print_all_accounts()
 
-print("Exiting program")
 print("Goodbye!")
 
 

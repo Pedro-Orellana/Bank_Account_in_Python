@@ -52,8 +52,59 @@ def create_new_account():
 
 def account_login():
     print()
-    print("Loging in to account!")
-    print("Returning to main menu...")
+    print("Loging in to your account!")
+
+    while(True):
+        name = input("Please provide the name in your account (or type 'CANCEL' to go back to main menu): ")
+        if(name == "CANCEL"):
+            return
+        if(name == ""):
+            print("Please provide a valid name")
+            continue
+        else:
+            break
+    
+    print(f"Welcome, {name}")
+
+    while(True):
+        pin = input("Please provide your pin number: ")
+        if(not pin.isdigit()):
+            print("Please provide a valid number")
+            continue
+        pin = int(pin)
+        if(pin < 1000 or pin > 9999):
+            print("Your pin number must be a 4-digit number")
+            continue
+        else:
+            break
+
+    #check if the account exists in the list of accounts
+    for current_account in account.registered_accounts:
+        if(current_account.name == name and current_account.pin == pin):
+            account.logged_account = current_account
+
+    if(account.logged_account == None):
+        print("No account exists with that name and pin combination")
+        print("Returning to main menu...")
+        return
+
+    print("Successfully logged in to your account!")
+
+        # while(user_menu_option != 4):
+        #     print("Please choose from the following menu:")
+        #     print("1. Make a deposit to your account")
+        #     print("2. Make a withdrawal from your account")
+        #     print("3. Get account details")
+        #     print("4. Log out")
+
+        #     while(True):
+        #         str_option = input("Please type your selection: ")
+        #         user_menu_option = get_valid_menu_option(str_option, 1, 4)
+        #         if(user_menu_option > 0):
+        #             break
+        #     match (user_menu_option):
+        #         case 1:
+
     print()
 
 def exit_program():
