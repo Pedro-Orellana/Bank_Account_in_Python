@@ -86,11 +86,14 @@ def account_login():
             account.logged_account = current_account
 
     if(account.logged_account == None):
+        print()
         print("No account exists with that name and pin combination")
         print("Returning to main menu...")
         return
 
+    print()
     print("Successfully logged in to your account!")
+    print()
 
     user_menu_option = 0
 
@@ -99,7 +102,7 @@ def account_login():
         print("1. Make a deposit to your account")
         print("2. Make a withdrawal from your account")
         print("3. Get account details")
-        print("4. Log out")
+        print("4. Log out from your account")
 
         while(True):
             str_option = input("Please type your selection: ")
