@@ -41,13 +41,15 @@ def create_new_account():
             break
     
 
-    print(f"Your name is {name} and your pin number is {number_pin} and the initial amount is ${initial_amount:.2f}")
-
     new_account = account.BankAccount(account.account_number, name, number_pin, initial_amount)
     account.registered_accounts.append(new_account)
 
     #incrementing the account number for next account
     account.account_number += 1
+
+    print()
+    print(f"Thank you, {name}, your account was succesfully created!")
+    print()
     return
 
 def account_login():

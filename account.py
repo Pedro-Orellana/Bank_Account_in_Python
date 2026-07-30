@@ -18,7 +18,26 @@ class BankAccount:
 
 
     def make_deposit(self):
-        print("Trying to make a deposit...")
+
+        if(logged_account == None):
+            return
+        
+        print("Make a deposit to your account today!")
+        while(True):
+            deposit_amount = input ("Please enter the amount you want to deposit (or type 'CANCEL' to go back): ")
+            if(deposit_amount == "CANCEL"):
+                return
+            try:
+                deposit_amount = float(deposit_amount)
+                break
+            except ValueError:
+                print("Please enter a valid number")
+                print()
+
+        #make the actual deposit
+        logged_account.balance += deposit_amount
+        print("You have successfully made a deposit to your bank account!")
+        print(f"Your current balance is ${logged_account.balance:.2f}")
         print()
 
     def make_withdrawal(self):
