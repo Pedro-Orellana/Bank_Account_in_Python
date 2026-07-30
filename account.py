@@ -41,8 +41,69 @@ class BankAccount:
         print()
 
     def make_withdrawal(self):
-        print("Trying to make a withdrawal...")
+        print("Get some money from your account today!")
         print()
+
+        withdrawal_amount = input("How much money would you like to withdraw? (or type 'CANCEL' to go back): ")
+
+        while(True):
+            if(withdrawal_amount == "CANCEL"):
+                print("Cancelling your transaction...")
+                print()
+                print("Going back to main menu...")
+                return
+            if(withdrawal_amount == ""):
+                print("Please provide an answer")
+                continue
+            try:
+                withdrawal_amount = float(withdrawal_amount)
+                break
+            except ValueError:
+                print("Please provide a valid money amount")
+                print()
+                continue
+
+        if(withdrawal_amount <= self.balance):
+            #make withdrawal
+            self.balance -= withdrawal_amount
+        else:
+            print("Looks like you're trying to withdraw more than you have:")
+            print()
+            print(f"current balance: ${self.balance:.2f}")
+            print(f"withdrawal amount: ${withdrawal_amount:.2f}")
+            print()
+
+            while(True):
+                answer = input(f"Would you like to withdraw ${self.balance:.2f} instead? y/n: ")
+                if(answer == 'y' or answer == 'n'):
+                    break
+                else:
+                    print("Please answer only with a 'y' for yes or a 'n' for no")
+
+            if(answer == 'y'):
+                #make a complete withdrawal
+                self.balance = 0
+                
+            else:
+                print()
+                print("You chose to not make any withdrawals today")
+                print("Going back to main menu...")
+                print()
+                return
+            
+        print("Transaction completed successfully!")
+        print("Please take your money!")
+        print("$$$")
+        print()
+        print(f"Current balance: ${self.balance:.2f}")
+        print()
+        print("Going back to main menu...")
+            
+            
+
+
+
+
     
     def get_account_details(self):
         print("These are your account details:")
